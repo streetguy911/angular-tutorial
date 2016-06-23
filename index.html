@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html ng-app="dashboard" ng-controller="dashboardController as dashboard">
+<html ng-app="app" ng-controller="dashboardController as dashboard">
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
+
+    <ui-view></ui-view>
     <section class="wrapper">
         <section ng-repeat="category in dashboard.categories">
             <table class="table">
