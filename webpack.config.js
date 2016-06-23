@@ -1,12 +1,12 @@
 'use strict';
 
-const webpack = require('webpack');
+var webpack = require('webpack');
 
 module.exports = {
 
     entry: "./app/app.js",
     output: {
-        path: `${__dirname}/public/javascripts/`,
+        path: __dirname + '/public/javascripts/',
         filename: "common.js"
     },
 
