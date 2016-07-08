@@ -7,7 +7,7 @@ import angular from 'angular';
 let dashboard = angular.module('app.dashboard', []);
 
 	dashboard.service('databaseService', databaseService);
-	dashboard.controller('dashboardController', ['databaseService', dashboardController]);
+	dashboard.controller('dashboardController', dashboardController);
 
 
 export default dashboard;
