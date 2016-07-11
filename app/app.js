@@ -12,7 +12,7 @@ angular.module('app', [
   $stateProvider
     .state('dashboard', {
       url: '/',
-      template: '<p>lol</p>'
+      template: '<p>test</p>'
     });
 
   $urlRouterProvider.otherwise('/dashboard');
