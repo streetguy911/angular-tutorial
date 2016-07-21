@@ -12,6 +12,7 @@
 
   angular.module('app', [
     uiRouter
+
   ])
   .service('databaseService', databaseService)
   .config(RouteConfig);
