@@ -11,7 +11,7 @@
   import dashboard from './modules/dashboard';
 
   angular.module('app', [
-    'ui.router'
+    uiRouter
   ])
   .service('databaseService', databaseService)
   .config(RouteConfig);
