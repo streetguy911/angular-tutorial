@@ -2,12 +2,20 @@
 
 import databaseService from '../../common/services/databaseService';
 import dashboardController from './dashboardController';
-import angular from 'angular';
+import dashboardTemplate from './dashboard.tpl.html';
 
 let dashboard = angular.module('app.dashboard', []);
 
-	dashboard.service('databaseService', databaseService);
-	dashboard.controller('dashboardController', dashboardController);
+dashboard.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
+  $stateProvider
+    .state('root.dashboard', {
+      url: '/dashboard',
+      views: {
+        'root': {
+          template: dashboardTemplate,
+          controller: dashboardController
+        }
+      }
+    });
 
-
-export default dashboard;
+);

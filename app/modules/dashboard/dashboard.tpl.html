@@ -1,22 +1,24 @@
-<section ng-repeat="category in categories">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>{{category.name}}</th>
-                <th>білки</th>
-                <th>жири</th>
-                <th>вуглеводи</th>
-                <th>ккал.</th>
-            </tr>
-        </thead>
-        <tbody ng-repeat="product in category.products">
-            <tr>
-                <td>{{product.name}}</td>
-                <td>{{product.protein}}</td>
-                <td>{{product.fat}}</td>
-                <td>{{product.carb}}</td>
-                <td>{{product.kcal}}</td>
-            </tr>
-        </tbody>
-    </table>
+<section class="wrapper">
+    <section ng-repeat="category in dashboard.categories">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{category.name}}</th>
+                    <th>білки</th>
+                    <th>жири</th>
+                    <th>вуглеводи</th>
+                    <th>ккал.</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="product in category.products">
+                <tr>
+                    <td>{{product.name}}</td>
+                    <td>{{product.protein}}</td>
+                    <td>{{product.fat}}</td>
+                    <td>{{product.carb}}</td>
+                    <td>{{product.kcal}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 </section>

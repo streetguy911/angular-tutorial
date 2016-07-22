@@ -1,4 +1,5 @@
 'use strict';
+<<<<<<< HEAD
 //views
 import mainTemplate from '../views/main.tpl.html';
 //controllers
@@ -18,6 +19,12 @@ export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
         }
       }
     });
+=======
 
+export default ($stateProvider, $urlRouterProvider, $locationProvider) => {
+>>>>>>> update structure
 
+  $urlRouterProvider.otherwise('/dashboard');
+
+  // $locationProvider.html5Mode(true);
 };
