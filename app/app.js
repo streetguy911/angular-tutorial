@@ -2,18 +2,18 @@
 
 import angular from 'angular';
 import bootstrap from 'angular-bootstrap';
-import dashboard from './modules/dashboard';
 import uiRouter from 'angular-ui-router';
 
-angular.module('app', [
-  dashboard.name,
-  uiRouter
-]).config(($stateProvider, $urlRouterProvider)=>{
-  $stateProvider
-    .state('dashboard', {
-      url: '/',
-      template: '<p>lol</p>'
-    });
+//modules
+import common from './common';
+import root from './modules/root';
+import dashboard from './modules/dashboard';
 
-  $urlRouterProvider.otherwise('/dashboard');
-});
+
+angular.module('app', [
+    uiRouter,
+    common.name,
+    root.name,
+    dashboard.name
+]);
+

@@ -13,7 +13,7 @@ export default class DashboardController {
         console.log('this: ', this);
         this.categories = this.databaseService.getProducts();
 
-        this.$http.get('/api/category').then(function(data){
+        this.$http.get('https://angular-tutorial-server.herokuapp.com/api/category').then(function(data){
           console.log('data:', data);
         });
     }
