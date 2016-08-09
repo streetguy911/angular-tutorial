@@ -10,8 +10,6 @@ module.exports = {
         filename: "common.js"
     },
 
-    watch: true,
-
     devtool: "eval",
 
     module: {
