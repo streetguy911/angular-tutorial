@@ -13,7 +13,8 @@ dashboard.config(($stateProvider, $urlRouterProvider, $locationProvider) => {
       views: {
         'root': {
           template: dashboardTemplate,
-          controller: dashboardController
+          controller: dashboardController,
+          controllerAs: 'dashboard'
         }
       }
     });
