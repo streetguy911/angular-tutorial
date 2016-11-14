@@ -1,12 +1,17 @@
 'use strict';
 
-import db from './db.js';
-
 export default class DatabaseService {
-    constructor () {
-        this.db = db;
+    constructor ($http) {
+        this.$http = $http;
+
+        console.log('DatabaseService');
     }
-    getProducts () {
-        return this.db;
+    recieveProducts () {
+        return this.$http.get('https://angular-tutorial-server.herokuapp.com/api/product');
     }
+
+    recieveProductsCategories() {
+        return this.$http.get('https://angular-tutorial-server.herokuapp.com/api/category');
+    }
+
 }

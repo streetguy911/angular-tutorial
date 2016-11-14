@@ -9,9 +9,9 @@ export default class HeaderController{
     }
 
     this.menuItems = [
-      {'name':'item1', 'status': 'active', 'link': '#'},
-      {'name':'item2', 'status': '', 'link': '#'},
-      {'name':'item3', 'status': '', 'link': '#'}
+      {'name':'dashboard', 'status': 'active', 'link': '#/dashboard'},
+      {'name':'Products', 'status': '', 'link': '#/products'},
+      {'name':'other item', 'status': '', 'link': '#'}
     ];
   }
 }
