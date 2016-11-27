@@ -2,3 +2,18 @@
     margin: 0 auto;
     width: 1280px;
 }
+
+.loading{
+  background: #fff;
+  position: relative;
+}
+.loading:before{
+  content: "Loading";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: red;
+}

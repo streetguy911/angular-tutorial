@@ -9,6 +9,7 @@ import common from './common';
 import root from './modules/root';
 import dashboard from './modules/dashboard';
 import products from './modules/products';
+import admin from './modules/admin';
 
 
 angular.module('app', [
@@ -16,6 +17,7 @@ angular.module('app', [
     common.name,
     root.name,
     dashboard.name,
-    products.name
+    products.name,
+    admin.name
 ]);
 

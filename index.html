@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap-theme.css">
 <link rel="stylesheet" href="./styles/style.css">
 </head>
-<body>
-<ui-view name="header"></ui-view>
+<body ng-class="{loading: appLoading}">
+    <ui-view name="header"></ui-view>
     <ui-view></ui-view>
 
     <script src="./public/javascripts/common.js"></script>

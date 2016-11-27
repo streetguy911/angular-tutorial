@@ -10,6 +10,15 @@ export default products.config(($stateProvider, $urlRouterProvider, $locationPro
   $stateProvider
     .state('root.products', {
       url: '/products',
+      title: 'Products',
+      resolve: {
+        products: (databaseService) =>{
+          return databaseService.recieveProducts();
+        },
+        categories: (databaseService) =>{
+          return databaseService.recieveProductsCategories();
+        },
+      },
       views: {
         'root': {
           template: productsTemplate,

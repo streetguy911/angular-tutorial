@@ -10,6 +10,7 @@ export default dashboard.config(($stateProvider, $urlRouterProvider, $locationPr
   $stateProvider
     .state('root.dashboard', {
       url: '/dashboard',
+      title: 'Dashboard',
       views: {
         'root': {
           template: dashboardTemplate,

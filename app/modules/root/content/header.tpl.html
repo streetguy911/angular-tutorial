@@ -4,7 +4,10 @@
       <a class="navbar-brand" href="#">{{header.sitename}}</a>
     </div>
     <ul class="nav navbar-nav">
-      <li ng-repeat="menuItem in header.menuItems" class="{{menuItem.status}}"><a href="{{menuItem.link}}">{{menuItem.name}}</a></li>
+      <li ng-repeat="menuItem in header.menuItems"
+          ui-sref-active="active">
+        <a ui-sref="{{menuItem.name}}">{{menuItem.title}}</a>
+      </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li ng-if="!header.user.username"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>

@@ -17,11 +17,16 @@ let root = angular.module('app.root', [])
           template: rootTemplate,
           controller: rootController
         },
-          'header': {
-            template: headerTemplate,
-            controller: headerController,
-            controllerAs: 'header'
-          }
+        'header': {
+          template: headerTemplate,
+          controller: headerController,
+          controllerAs: 'header'
+        }
+      },
+      resolve: {
+        user: (userService) => {
+          return userService.getUser();
+        }
       }
     });
 
