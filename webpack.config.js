@@ -28,6 +28,10 @@ module.exports = {
               loader: "angular-templatecache-loader",
               exclude: /node_modules|bower_components/
           },
+            {
+                test: /\.css$/,
+                loader: "style-loader!css-loader"
+            }
         ]
     }
 

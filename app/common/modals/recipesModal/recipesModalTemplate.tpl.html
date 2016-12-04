@@ -1,0 +1,37 @@
+<div ng-if="!recipesModalCtrl.recipeAdded">
+    <h1>New Recipe</h1>
+    <form name="recipeForm" ng-submit="recipesModalCtrl.addIngredient()">
+        <div class="recipes-name-wrapper">
+            <label>Recipe's name:</label>
+            <input ng-model="recipesModalCtrl.recipeTitle" ng-required="true" required>
+        </div>
+        <div>
+            <label>Ingredients:</label>
+            <select ng-model="recipesModalCtrl.ingredient"
+                    ng-options="product.name as product.name for product in recipesModalCtrl.products"
+                    required>
+            </select>
+        </div>
+        <div>
+            <label>Quantity of each ingredient:</label>
+            <input ng-pattern="/^\d+$/" ng-required="true" required ng-model="recipesModalCtrl.ingrQuantity">
+            <select ng-model="recipesModalCtrl.ingrQuantityValue"
+                    ng-options="quantity.title as quantity.title for quantity in recipesModalCtrl.quantityValues"
+                    required>
+
+            </select>
+        </div>
+        <input type="submit" ng-disabled="recipeForm.$invalid" value="Add ingredient to recipe">
+    </form>
+    <h2>Your new recipe include</h2>
+    <ul>
+        <li ng-repeat="ingredient in recipesModalCtrl.newRecipe.ingredients">{{ingredient.quantity}} {{ingredient.name}}</li>
+    </ul>
+    <div>
+        <button ng-disabled="recipeForm.$invalid ||  recipesModalCtrl.newRecipe.ingredients.length < 1" ng-click="recipesModalCtrl.save()">Create recipe</button>
+        <button ng-click="recipesModalCtrl.close()">Close</button>
+    </div>
+</div>
+<div ng-if="recipesModalCtrl.recipeAdded">
+    <h1>Your own recipe was added</h1>
+</div>
