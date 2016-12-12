@@ -1,10 +1,9 @@
 'use strict';
 
 export default class DatabaseService {
-    constructor ($http) {
+    constructor ($http, appConfig) {
         this.$http = $http;
-
-        console.log('DatabaseService');
+        this.appConfig = appConfig;
         this.quantityValues = [
             {'title': 'ложки'},
             {'title': 'милиграммы'},
@@ -13,11 +12,11 @@ export default class DatabaseService {
         this.newRecipe = {title: "", ingredients: []};
     }
     recieveProducts () {
-        return this.$http.get('https://angular-tutorial-server.herokuapp.com/api/product');
+        return this.$http.get(this.appConfig.api.product.list);
     }
 
     recieveProductsCategories() {
-        return this.$http.get('https://angular-tutorial-server.herokuapp.com/api/category');
+        return this.$http.get(this.appConfig.api.category.list);
     }
 
     receiveRecipes() {
@@ -28,7 +27,7 @@ export default class DatabaseService {
                 {title: 'someRecipe2', description: 'put some shit to the plate 2'},
                 {title: 'someRecipe3', description: 'put some shit to the plate 3'}
             ]
-        }
+        };
     }
     createRecipe() {
         // waiting for API

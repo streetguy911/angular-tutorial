@@ -11,6 +11,7 @@ import root from './modules/root';
 import dashboard from './modules/dashboard';
 import products from './modules/products';
 import admin from './modules/admin';
+import auth from './modules/auth';
 import recipes from './modules/recipes';
 
 
@@ -18,6 +19,7 @@ angular.module('app', [
     uiRouter,
     modal,
     common.name,
+    auth.name,
     root.name,
     dashboard.name,
     products.name,
