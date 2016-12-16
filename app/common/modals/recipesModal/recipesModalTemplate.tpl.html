@@ -1,37 +1,51 @@
-<div ng-if="!recipesModalCtrl.recipeAdded">
-    <h1>New Recipe</h1>
-    <form name="recipeForm" ng-submit="recipesModalCtrl.addIngredient()">
-        <div class="recipes-name-wrapper">
-            <label>Recipe's name:</label>
-            <input ng-model="recipesModalCtrl.recipeTitle" ng-required="true" required>
-        </div>
-        <div>
-            <label>Ingredients:</label>
-            <select ng-model="recipesModalCtrl.ingredient"
-                    ng-options="product.name as product.name for product in recipesModalCtrl.products"
-                    required>
-            </select>
-        </div>
-        <div>
-            <label>Quantity of each ingredient:</label>
-            <input ng-pattern="/^\d+$/" ng-required="true" required ng-model="recipesModalCtrl.ingrQuantity">
-            <select ng-model="recipesModalCtrl.ingrQuantityValue"
-                    ng-options="quantity.title as quantity.title for quantity in recipesModalCtrl.quantityValues"
-                    required>
-
-            </select>
-        </div>
-        <input type="submit" ng-disabled="recipeForm.$invalid" value="Add ingredient to recipe">
-    </form>
-    <h2>Your new recipe include</h2>
-    <ul>
-        <li ng-repeat="ingredient in recipesModalCtrl.newRecipe.ingredients">{{ingredient.quantity}} {{ingredient.name}}</li>
-    </ul>
-    <div>
-        <button ng-disabled="recipeForm.$invalid ||  recipesModalCtrl.newRecipe.ingredients.length < 1" ng-click="recipesModalCtrl.save()">Create recipe</button>
-        <button ng-click="recipesModalCtrl.close()">Close</button>
-    </div>
+<div class="modal-header text-center" id="modal-header">
+    <h3 class="modal-title">New Recipe</h3>
 </div>
-<div ng-if="recipesModalCtrl.recipeAdded">
-    <h1>Your own recipe was added</h1>
+<div class="modal-body" id="modal-body">
+    <div ng-if="!recipesModalCtrl.recipeAdded">
+        <form class="form-horizontal" name="recipeForm" ng-submit="recipesModalCtrl.addIngredient()">
+            <div class="form-group row">
+                <label class="control-label col-sm-3 col-xs-12">Recipe's name:</label>
+                <div class="col-sm-9 col-xs-12">
+                    <input class="form-control" ng-model="recipesModalCtrl.recipeTitle" ng-required="true" required>
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-3 col-xs-12">Ingredients:</label>
+                <div class="col-sm-9 col-xs-12">
+                    <select class="form-control" ng-model="recipesModalCtrl.ingredient"
+                            ng-options="product.name as product.name for product in recipesModalCtrl.products"
+                            required>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-3 col-xs-12">
+                    <label class="control-label">Ingredient's quantity:</label>
+                </div>
+                <div class="col-sm-4 col-xs-6">
+                    <input class="form-control" ng-pattern="/^\d+$/" ng-required="true" required ng-model="recipesModalCtrl.ingrQuantity">
+                </div>
+                <div class="col-sm-5 col-xs-6">
+                    <select  class="form-control" ng-model="recipesModalCtrl.ingrQuantityValue"
+                            ng-options="quantity.title as quantity.title for quantity in recipesModalCtrl.quantityValues"
+                            required>
+                    </select>
+                </div>
+            </div>
+            <input class="btn btn-primary" type="submit" ng-disabled="recipeForm.$invalid" value="Add ingredient to recipe">
+        </form>
+        <h2>Your new recipe include</h2>
+        <ul>
+            <li ng-repeat="ingredient in recipesModalCtrl.newRecipe.ingredients">{{ingredient.quantity}} {{ingredient.name}}</li>
+        </ul>
+        <div>
+            <button ng-disabled="recipeForm.$invalid ||  recipesModalCtrl.newRecipe.ingredients.length < 1" ng-click="recipesModalCtrl.save()">Create recipe</button>
+            <button ng-click="recipesModalCtrl.close()">Close</button>
+        </div>
+    </div>
+    <div ng-if="recipesModalCtrl.recipeAdded">
+        <h1>Your own recipe was added</h1>
+    </div>
 </div>
