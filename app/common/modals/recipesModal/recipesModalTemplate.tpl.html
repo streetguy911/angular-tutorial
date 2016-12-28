@@ -11,38 +11,41 @@
                 </div>
 
             </div>
-            <div class="form-group row">
-                <label class="control-label col-sm-3 col-xs-12">Ingredients:</label>
-                <div class="col-sm-9 col-xs-12">
-                    <select class="form-control" ng-model="recipesModalCtrl.ingredient"
+        </form>
+        <h2>Your new recipe include</h2>
+        <form class="form-horizontal" name="recipeForm" ng-submit="recipesModalCtrl.addIngredient()">
+            <div class="for-group row">
+                <div class="col-sm-4">
+                    <label class="control-label" for="ingredient">Ingredients:</label>
+                    <select id= "ingredient" class="form-control"
+                            ng-model="recipesModalCtrl.ingredient"
                             ng-options="product.name as product.name for product in recipesModalCtrl.products"
                             required>
                     </select>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-3 col-xs-12">
-                    <label class="control-label">Ingredient's quantity:</label>
+                <div class="col-sm-3">
+                    <label for="quantity" class="control-label col-sm-3 col-xs-12">Quantity:</label>
+                    <input class="form-control" id="quantity" ng-pattern="/^\d+$/" ng-required="true" required ng-model="recipesModalCtrl.ingrQuantity">
                 </div>
-                <div class="col-sm-4 col-xs-6">
-                    <input class="form-control" ng-pattern="/^\d+$/" ng-required="true" required ng-model="recipesModalCtrl.ingrQuantity">
-                </div>
-                <div class="col-sm-5 col-xs-6">
-                    <select  class="form-control" ng-model="recipesModalCtrl.ingrQuantityValue"
-                            ng-options="quantity.title as quantity.title for quantity in recipesModalCtrl.quantityValues"
-                            required>
+                <div class="col-sm-3">
+                    <label class="control-label" for="measure">Measure:</label>
+                    <select  id="measure" class="form-control" ng-model="recipesModalCtrl.ingrQuantityValue"
+                             ng-options="quantity.title as quantity.title for quantity in recipesModalCtrl.quantityValues"
+                             required>
                     </select>
                 </div>
+                <div class="col-sm-2">
+                    <label class="control-label" for="submit-button">Add:</label>
+                    <input class="btn btn-primary form-control" id="submit-button" type="submit" ng-disabled="recipeForm.$invalid" value="Add">
+                </div>
             </div>
-            <input class="btn btn-primary" type="submit" ng-disabled="recipeForm.$invalid" value="Add ingredient to recipe">
         </form>
-        <h2>Your new recipe include</h2>
         <ul>
             <li ng-repeat="ingredient in recipesModalCtrl.newRecipe.ingredients">{{ingredient.quantity}} {{ingredient.name}}</li>
         </ul>
         <div>
-            <button ng-disabled="recipeForm.$invalid ||  recipesModalCtrl.newRecipe.ingredients.length < 1" ng-click="recipesModalCtrl.save()">Create recipe</button>
-            <button ng-click="recipesModalCtrl.close()">Close</button>
+            <button  class="btn btn-primary" ng-disabled="recipesModalCtrl.newRecipe.ingredients.length < 1" ng-click="recipesModalCtrl.save()">Create recipe</button>
+            <button class="btn btn-primary" ng-click="recipesModalCtrl.close()">Close</button>
         </div>
     </div>
     <div ng-if="recipesModalCtrl.recipeAdded">
