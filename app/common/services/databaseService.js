@@ -34,5 +34,11 @@ export default class DatabaseService {
         // call API that create new recipe
         console.log('Recipe created');
     }
+    addIngredient() {
+
+    }
+    removeIngredient(ingredient) {
+        _.pull(this.newRecipe.ingredients, ingredient)
+    }
 
 }

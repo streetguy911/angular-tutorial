@@ -41,7 +41,9 @@
             </div>
         </form>
         <ul>
-            <li ng-repeat="ingredient in recipesModalCtrl.newRecipe.ingredients">{{ingredient.quantity}} {{ingredient.name}}</li>
+            <li ng-repeat="ingredient in recipesModalCtrl.newRecipe.ingredients">{{ingredient.quantity}} {{ingredient.name}}
+                <div class="remove" ng-click="recipesModalCtrl.removeIngredient(ingredient)"></div>
+            </li>
         </ul>
         <div>
             <button  class="btn btn-primary" ng-disabled="recipesModalCtrl.newRecipe.ingredients.length < 1" ng-click="recipesModalCtrl.save()">Create recipe</button>

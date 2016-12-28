@@ -23,4 +23,8 @@ export default class recipesModalController {
 
         console.log(this.newRecipe, 'added ingredients');
     }
+    removeIngredient(ingredient) {
+        console.log('remove current ingredient');
+        this.databaseService.removeIngredient(ingredient);
+    }
 }
